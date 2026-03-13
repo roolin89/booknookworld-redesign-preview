@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Nook World — Project Docs</title>
+  <style>
+    :root{--bg:#f7f2eb;--paper:#fffdfa;--ink:#2b211b;--muted:#6b5e53;--line:#eadfce;--brand:#7a4b31;--shadow:0 14px 36px rgba(73,45,26,.10);--radius:18px;--max:1000px}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#fcf8f3 0%,#f3ebdf 100%);color:var(--ink)}
+    a{text-decoration:none;color:inherit}.container{width:min(calc(100% - 32px),var(--max));margin:0 auto}.hero{padding:48px 0 20px}.eyebrow{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(122,75,49,.08);color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(36px,5vw,56px);line-height:1.02;margin:16px 0}.hero p{font-size:18px;line-height:1.7;color:var(--muted);max-width:760px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0 50px}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.card h2{margin:0 0 8px;font-size:26px}.card p{margin:0 0 18px;color:var(--muted);line-height:1.7}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:999px;font-weight:700;background:var(--brand);color:#fff}.list{margin-top:8px;color:var(--muted);line-height:1.8} @media (max-width:700px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Project docs</span>
+      <h1>Book Nook World homepage redesign files</h1>
+      <p>This page collects the latest preview and supporting documents for review, copy approval, and Shopify implementation.</p>
+    </div>
+  </section>
+  <section>
+    <div class="container grid">
+      <article class="card">
+        <h2>Final Copy Preview</h2>
+        <p>The final homepage copy placed inside a visual Shopify-style preview, so wording and layout can be reviewed together.</p>
+        <a class="btn" href="./final-copy-preview.html">Open Preview</a>
+      </article>
+      <article class="card">
+        <h2>Homepage Final Copy Deck</h2>
+        <p>The full English copy draft for every homepage section, ready for Shopify theme editor paste or internal review.</p>
+        <div class="list">File: <code>docs/homepage-final-copy-deck.md</code></div>
+      </article>
+      <article class="card">
+        <h2>Shopify Section Handoff</h2>
+        <p>The section-by-section implementation note covering module types, copy usage, CTA structure, and execution priorities.</p>
+        <div class="list">File: <code>docs/shopify-section-handoff.md</code></div>
+      </article>
+      <article class="card">
+        <h2>Repository</h2>
+        <p>All files are synced to the GitHub Pages preview repository for version tracking and collaboration.</p>
+        <a class="btn" href="https://github.com/roolin89/booknookworld-redesign-preview">Open Repository</a>
+      </article>
+    </div>
+  </section>
+</body>
+</html>
