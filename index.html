@@ -3,110 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Nook World — Redesign Mockup (Real Images)</title>
+  <title>Book Nook World — Shopify Landing Mockup</title>
   <style>
     :root{
-      --bg:#f6f1ea;
-      --paper:#fffdf9;
+      --bg:#f7f2eb;
+      --paper:#fffdfa;
       --ink:#2b211b;
-      --muted:#6d6055;
+      --muted:#6b5e53;
       --line:#eadfce;
       --brand:#7a4b31;
-      --brand-dark:#5e3824;
-      --gold:#d5a15d;
-      --shadow:0 18px 40px rgba(77,49,31,.10);
-      --radius:20px;
-      --max:1180px;
+      --brand-dark:#5f3a24;
+      --cream:#fbf6ef;
+      --shadow:0 14px 36px rgba(73,45,26,.10);
+      --radius:18px;
+      --max:1200px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#fcf8f2 0%,#f4ede3 100%)}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#fcf8f3 0%,#f3ebdf 100%);color:var(--ink)}
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
     .container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
-    .topbar{background:#2d2018;color:#f7eee7;font-size:13px}
-    .topbar .container{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:10px 0}
-    .nav-wrap{position:sticky;top:0;z-index:10;background:rgba(252,248,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(122,75,49,.08)}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
-    .logo{font-size:25px;font-weight:800;letter-spacing:-.03em}
-    .logo small{display:block;font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
-    .nav-links{display:flex;gap:22px;color:var(--muted)}
+    .announcement{background:#2f2119;color:#f7ece2;font-size:13px}
+    .announcement .container{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;padding:10px 0}
+    .header{position:sticky;top:0;z-index:20;background:rgba(252,248,243,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(122,75,49,.08)}
+    .header .container{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+    .logo{font-weight:800;font-size:24px;letter-spacing:-.03em}
+    .logo small{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
+    nav{display:flex;gap:22px;color:var(--muted)}
+    .actions{display:flex;gap:10px;align-items:center}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-weight:700;transition:.2s ease}
-    .btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
-    .btn-primary:hover{background:var(--brand-dark)}
-    .btn-secondary{border:1px solid var(--line);background:#fff}
-    .eyebrow{display:inline-block;background:rgba(122,75,49,.08);color:var(--brand);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-    .hero{padding:42px 0 28px}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:stretch}
-    .hero-copy,.hero-media,.card,.product-card,.quote,.faq,.cta-band{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .btn.primary{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
+    .btn.primary:hover{background:var(--brand-dark)}
+    .btn.secondary{border:1px solid var(--line);background:#fff}
+    .eyebrow{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(122,75,49,.08);color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .section{padding:34px 0}
+    .section-head{margin-bottom:20px}
+    .section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:12px 0}
+    .section-head p{margin:0;max-width:760px;color:var(--muted);font-size:18px;line-height:1.6}
+
+    /* Shopify-style sections */
+    .hero{padding:42px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:stretch}
+    .hero-copy,.hero-media,.trustbar,.card,.feature,.review,.faq,.email-signup{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
     .hero-copy{padding:42px}
-    h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.045em;margin:16px 0}
-    .lead{font-size:20px;line-height:1.6;color:var(--muted);margin:0 0 24px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-    .mini-points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .mini-points div{padding:16px;border-radius:16px;background:#fbf6ef;border:1px solid #eee1d1;font-size:14px;color:var(--muted)}
-    .mini-points strong{display:block;color:var(--ink);margin-bottom:4px}
+    .hero-copy h1{font-size:clamp(42px,6vw,72px);line-height:.95;letter-spacing:-.05em;margin:16px 0}
+    .hero-copy p{font-size:20px;line-height:1.65;color:var(--muted);margin:0 0 24px}
+    .hero-points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .hero-points div{padding:16px;border-radius:16px;background:var(--cream);border:1px solid #eee1d0;color:var(--muted);font-size:14px}
+    .hero-points strong{display:block;color:var(--ink);margin-bottom:4px}
     .hero-media{overflow:hidden;position:relative;min-height:620px}
     .hero-media img{width:100%;height:100%;object-fit:cover}
-    .hero-badge{position:absolute;left:20px;top:20px;background:rgba(43,33,27,.75);color:#fff;padding:10px 14px;border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-    .hero-overlay{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(255,250,245,.88);backdrop-filter:blur(12px);padding:18px;border-radius:18px}
-    .hero-overlay strong{font-size:18px}
-    section{padding:30px 0}
-    .section-head{margin-bottom:20px}
-    .section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:12px 0}
-    .section-head p{max-width:760px;color:var(--muted);font-size:18px;margin:0}
-    .metrics,.category-grid,.product-grid,.usp-grid,.review-grid,.faq-grid{display:grid;gap:18px}
-    .metrics{grid-template-columns:repeat(4,1fr)}
-    .metric{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
-    .metric strong{display:block;font-size:34px;letter-spacing:-.04em}
-    .metric span{color:var(--muted)}
-    .category-grid{grid-template-columns:repeat(4,1fr)}
-    .card{overflow:hidden}
-    .card img{width:100%;aspect-ratio:1/1;object-fit:cover}
-    .card-body{padding:20px}
-    .card-body h3{margin:0 0 8px;font-size:22px}
-    .card-body p{margin:0;color:var(--muted)}
-    .product-grid{grid-template-columns:repeat(4,1fr)}
-    .product-card{overflow:hidden}
-    .product-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f4eadf}
-    .product-body{padding:18px}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(122,75,49,.08);color:var(--brand);font-size:12px;font-weight:800;margin-bottom:10px}
-    .product-body h3{font-size:20px;line-height:1.3;margin:0 0 10px}
-    .price{font-size:22px;font-weight:800;margin-bottom:14px}
-    .usp-grid{grid-template-columns:repeat(3,1fr)}
-    .usp{padding:24px}
-    .usp h3{margin:0 0 10px;font-size:22px}
-    .usp p{margin:0;color:var(--muted)}
-    .review-grid{grid-template-columns:repeat(3,1fr)}
-    .quote{padding:24px}
-    .quote p{font-size:19px;line-height:1.6;margin:0 0 12px}
-    .quote span{color:var(--muted);font-weight:600}
-    .cta-band{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:28px;background:linear-gradient(135deg,#fff7ec 0%,#f1e1d1 100%)}
-    .cta-band h2{margin:0 0 8px;font-size:34px;line-height:1.1}
-    .cta-band p{margin:0;color:var(--muted);max-width:700px}
+    .hero-note{position:absolute;left:20px;bottom:20px;right:20px;background:rgba(255,250,245,.92);backdrop-filter:blur(10px);padding:16px;border-radius:16px;font-size:15px;line-height:1.6}
+
+    .trustbar{padding:22px}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .trust-item{padding:12px 8px;text-align:center}
+    .trust-item strong{display:block;font-size:28px;letter-spacing:-.04em}
+    .trust-item span{color:var(--muted);font-size:14px}
+
+    .collections-grid,.featured-grid,.features-grid,.reviews-grid,.faq-grid,.footer-grid{display:grid;gap:18px}
+    .collections-grid{grid-template-columns:repeat(4,1fr)}
+    .featured-grid{grid-template-columns:repeat(4,1fr)}
+    .features-grid{grid-template-columns:repeat(3,1fr)}
+    .reviews-grid{grid-template-columns:repeat(3,1fr)}
     .faq-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}
+
+    .card,.product-card{overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card img,.product-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f3e8da}
+    .card-body,.product-body{padding:20px}
+    .card-body h3,.product-body h3{margin:0 0 8px;font-size:21px;line-height:1.3}
+    .card-body p,.product-body p{margin:0;color:var(--muted);line-height:1.6}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(122,75,49,.08);color:var(--brand);font-size:12px;font-weight:800;margin-bottom:10px}
+    .price{font-size:22px;font-weight:800;margin:10px 0 14px}
+
+    .feature{padding:24px}
+    .feature h3{margin:0 0 10px;font-size:22px}
+    .feature p{margin:0;color:var(--muted);line-height:1.65}
+
+    .split-banner{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .split-copy,.split-image{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .split-copy{padding:32px}
+    .split-copy h2{font-size:40px;line-height:1.05;margin:12px 0}
+    .split-copy p{color:var(--muted);line-height:1.7;font-size:18px}
+    .split-image img{width:100%;height:100%;object-fit:cover;min-height:360px}
+
+    .review{padding:24px}
+    .review p{margin:0 0 10px;font-size:18px;line-height:1.65}
+    .review span{color:var(--muted);font-weight:600}
+
     .faq{padding:22px}
     .faq h4{margin:0 0 8px;font-size:18px}
-    .faq p{margin:0;color:var(--muted)}
-    footer{padding:36px 0 58px;color:var(--muted)}
-    .footer{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px}
-    .footer h4{color:var(--ink);margin:0 0 10px}
-    .footer a{display:block;margin:8px 0}
+    .faq p{margin:0;color:var(--muted);line-height:1.65}
+
+    .email-signup{padding:30px;background:linear-gradient(135deg,#fff8ef 0%,#f1e2d2 100%)}
+    .email-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .email-copy h2{margin:10px 0 8px;font-size:34px;line-height:1.1}
+    .email-copy p{margin:0;color:var(--muted);max-width:680px}
+    .email-form{display:flex;gap:10px;flex-wrap:wrap}
+    .email-form input{min-width:280px;padding:15px 18px;border-radius:999px;border:1px solid var(--line);font:inherit;background:#fff}
+
+    footer{padding:36px 0 60px;color:var(--muted)}
+    footer h4{margin:0 0 10px;color:var(--ink)}
+    footer a{display:block;margin:8px 0}
+
     @media (max-width:980px){
-      .hero-grid,.metrics,.category-grid,.product-grid,.usp-grid,.review-grid,.faq-grid,.footer{grid-template-columns:1fr 1fr}
-      .mini-points{grid-template-columns:1fr}
-      .cta-band{flex-direction:column;align-items:flex-start}
+      .hero-grid,.trust-grid,.collections-grid,.featured-grid,.features-grid,.reviews-grid,.faq-grid,.footer-grid,.split-banner{grid-template-columns:1fr 1fr}
+      .hero-points{grid-template-columns:1fr}
+      .email-row{flex-direction:column;align-items:flex-start}
     }
     @media (max-width:640px){
-      .nav-links{display:none}
-      .hero-grid,.metrics,.category-grid,.product-grid,.usp-grid,.review-grid,.faq-grid,.footer{grid-template-columns:1fr}
-      .hero-copy,.card-body,.product-body,.usp,.quote,.faq,.cta-band{padding:20px}
+      nav{display:none}
+      .hero-grid,.trust-grid,.collections-grid,.featured-grid,.features-grid,.reviews-grid,.faq-grid,.footer-grid,.split-banner{grid-template-columns:1fr}
+      .hero-copy,.trustbar,.feature,.review,.faq,.email-signup,.split-copy{padding:20px}
       .hero-media{min-height:420px}
-      .lead,.section-head p{font-size:16px}
+      .hero-copy p,.section-head p,.split-copy p{font-size:16px}
+      .hero-copy h1{font-size:42px}
+      .actions .btn.secondary{display:none}
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
+  <div class="announcement">
     <div class="container">
       <span>Free Shipping on All Orders</span>
       <span>30-Day Returns</span>
@@ -114,64 +132,68 @@
     </div>
   </div>
 
-  <div class="nav-wrap">
-    <div class="container nav">
-      <div class="logo">Book Nook World<small>DIY Mini Worlds for Book Lovers</small></div>
-      <div class="nav-links">
-        <a href="#bestsellers">Best Sellers</a>
-        <a href="#categories">Shop by Theme</a>
+  <header class="header">
+    <div class="container">
+      <div class="logo">Book Nook World<small>Shopify-ready homepage direction</small></div>
+      <nav>
+        <a href="#collections">Shop by Theme</a>
+        <a href="#featured">Best Sellers</a>
         <a href="#why">Why Choose Us</a>
         <a href="#faq">FAQ</a>
+      </nav>
+      <div class="actions">
+        <a class="btn secondary" href="#collections">Browse Themes</a>
+        <a class="btn primary" href="#featured">Shop Best Sellers</a>
       </div>
-      <a class="btn btn-primary" href="#bestsellers">Shop Best Sellers</a>
     </div>
-  </div>
+  </header>
 
   <main>
+    <!-- Section: image-banner / hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Redesigned with current site imagery</span>
+          <span class="eyebrow">Section 1 · Image banner</span>
           <h1>Build a tiny world that glows between your books.</h1>
-          <p class="lead">DIY book nook kits, miniature houses, and wooden puzzles made for relaxing creativity, meaningful gifts, and bookshelf display that actually gets noticed.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#bestsellers">Shop Best Sellers</a>
-            <a class="btn btn-secondary" href="#categories">Browse Themes</a>
+          <p>DIY book nook kits, miniature houses, and wooden puzzles designed for relaxing creativity, gift-worthy moments, and bookshelf displays that feel magical in real life.</p>
+          <div class="actions" style="justify-content:flex-start; flex-wrap:wrap;">
+            <a class="btn primary" href="#featured">Shop Best Sellers</a>
+            <a class="btn secondary" href="#collections">Shop by Theme</a>
           </div>
-          <div class="mini-points">
-            <div><strong>Gift-worthy</strong>Perfect for book lovers, crafters, and fantasy fans.</div>
+          <div class="hero-points">
+            <div><strong>Gift-worthy</strong>Made for book lovers, crafters, and fantasy fans.</div>
             <div><strong>Beginner-friendly</strong>Clear assembly flow with satisfying finished results.</div>
-            <div><strong>Display-ready</strong>Warm lighting and shelf impact are part of the appeal.</div>
+            <div><strong>Display-ready</strong>Warm lighting and shelf impact are part of the product value.</div>
           </div>
         </div>
         <div class="hero-media">
-          <span class="hero-badge">Current image style reused</span>
-          <img src="https://img-va.myshopline.com/image/store/1666112052493/Wisdom-Rings-Books-Repository-on-desk.jpg?w=1000&h=1000" alt="Wisdom Rings DIY Book Nook Kit on desk" />
-          <div class="hero-overlay">
-            <strong>Real image direction:</strong>
-            use cozy desk / bookshelf lifestyle shots like the current Wisdom Rings and Hogsmoor visuals, but give them stronger copy and a cleaner CTA hierarchy.
-          </div>
+          <img src="https://img-va.myshopline.com/image/store/1666112052493/Wisdom-Rings-Books-Repository-on-desk.jpg?w=1000&h=1000" alt="Wisdom Rings on desk" />
+          <div class="hero-note">Recommended Shopify setup: one strong lifestyle image, one clear H1, one primary CTA, one secondary CTA. No rotating hero carousel.</div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container metrics">
-        <div class="metric"><strong>20,000+</strong><span>happy customers moved near the top</span></div>
-        <div class="metric"><strong>Free</strong><span>shipping promise kept visible</span></div>
-        <div class="metric"><strong>30-Day</strong><span>return reassurance before product blocks</span></div>
-        <div class="metric"><strong>DIY</strong><span>relaxing craft + bookshelf decor positioning</span></div>
+    <!-- Section: multicolumn / trust -->
+    <section class="section">
+      <div class="container trustbar">
+        <div class="trust-grid">
+          <div class="trust-item"><strong>20,000+</strong><span>Happy customers</span></div>
+          <div class="trust-item"><strong>Free</strong><span>Shipping on all orders</span></div>
+          <div class="trust-item"><strong>30-Day</strong><span>Returns & exchanges</span></div>
+          <div class="trust-item"><strong>Support</strong><span>Parts replacement available</span></div>
+        </div>
       </div>
     </section>
 
-    <section id="categories">
+    <!-- Section: collection list -->
+    <section class="section" id="collections">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Shop by category</span>
-          <h2>Make the homepage easier to scan</h2>
-          <p>Instead of stacking repeated carousels, this version uses your existing category images to create a cleaner “choose your style” section.</p>
+          <span class="eyebrow">Section 2 · Collection list</span>
+          <h2>Shop by theme, not by homepage clutter</h2>
+          <p>This block is closer to a real Shopify collection-list section: 4 cards, one image each, one short value statement each, and a cleaner path into collection pages.</p>
         </div>
-        <div class="category-grid">
+        <div class="collections-grid">
           <article class="card">
             <img src="https://img-va.myshopline.com/image/store/1666112052493/-(22).jpg?w=800&h=800" alt="Book Nooks" />
             <div class="card-body">
@@ -180,145 +202,176 @@
             </div>
           </article>
           <article class="card">
-            <img src="https://img-va.myshopline.com/image/store/1666112052493/-02--6.jpeg?w=800&h=800" alt="DIY Miniature Kit" />
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/-02--6.jpeg?w=800&h=800" alt="DIY Miniature Kits" />
             <div class="card-body">
               <h3>DIY Miniature Houses</h3>
-              <p>Immersive mini builds for cozy, screen-free creative time.</p>
+              <p>Slow, immersive builds for cozy creative weekends.</p>
             </div>
           </article>
           <article class="card">
-            <img src="https://img-va.myshopline.com/image/store/1666112052493/-(11).jpg?w=800&h=800" alt="3D Mechanical Wooden Puzzle Kit" />
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/-(11).jpg?w=800&h=800" alt="Wooden puzzles" />
             <div class="card-body">
               <h3>3D Wooden Puzzles</h3>
-              <p>Mechanical builds for shoppers who want motion, detail, and display value.</p>
+              <p>Mechanical builds for makers who enjoy motion and detail.</p>
             </div>
           </article>
           <article class="card">
             <img src="https://img-va.myshopline.com/image/store/1666112052493/wall.jpeg?w=2048&h=2048" alt="Story Frame" />
             <div class="card-body">
               <h3>Story Frame Series</h3>
-              <p>More decorative, giftable products with stronger visual shelf appeal.</p>
+              <p>Decorative, giftable pieces with stronger wall and shelf appeal.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="bestsellers">
+    <!-- Section: featured collection -->
+    <section class="section" id="featured">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Primary product section</span>
-          <h2>Best sellers with real current product photos</h2>
-          <p>I reused actual images already on the site, but reorganized them into one clearer conversion block instead of multiple scattered sliders.</p>
+          <span class="eyebrow">Section 3 · Featured collection</span>
+          <h2>Best sellers with clearer product-card hierarchy</h2>
+          <p>Instead of several repeated product sliders, Shopify should show one strong featured-collection block on the homepage, then send traffic into PDPs or collection pages.</p>
         </div>
-        <div class="product-grid">
+        <div class="featured-grid">
           <article class="product-card">
-            <img src="https://img-va.myshopline.com/image/store/1666112052493/jimeng-2025-11-26-6012-.webp?w=2048&h=2048" alt="Hogsmoor Station DIY Book Nook Kit" />
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/jimeng-2025-11-26-6012-.webp?w=2048&h=2048" alt="Hogsmoor Station" />
             <div class="product-body">
-              <span class="pill">#1 Gift Pick</span>
+              <span class="badge">#1 Gift Pick</span>
               <h3>Hogsmoor Station DIY Book Nook Kit</h3>
+              <p>Fantasy station theme with strong gift appeal and shelf presence.</p>
               <div class="price">From HK$391</div>
-              <a class="btn btn-primary" href="#">View Details</a>
+              <a class="btn primary" href="#">View Product</a>
             </div>
           </article>
           <article class="product-card">
-            <img src="https://img-va.myshopline.com/image/store/1666112052493/02.jpg?w=1600&h=1600" alt="Wisdom Rings DIY Book Nook Kit" />
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/02.jpg?w=1600&h=1600" alt="Wisdom Rings" />
             <div class="product-body">
-              <span class="pill">Beginner Friendly</span>
+              <span class="badge">Beginner Friendly</span>
               <h3>Wisdom Rings DIY Book Nook Kit</h3>
+              <p>Mini circular library with warm lighting and premium visual detail.</p>
               <div class="price">From HK$469</div>
-              <a class="btn btn-primary" href="#">View Details</a>
+              <a class="btn primary" href="#">View Product</a>
             </div>
           </article>
           <article class="product-card">
-            <img src="https://img-va.myshopline.com/image/store/1666112052493/7-2384c068-4c8c-48cb-8983-05105f18b536.jpeg?w=1000&h=1000" alt="Magic Coffee House DIY Book Nook Kit" />
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/7-2384c068-4c8c-48cb-8983-05105f18b536.jpeg?w=1000&h=1000" alt="Magic Coffee House" />
             <div class="product-body">
-              <span class="pill">Light-Up Scene</span>
+              <span class="badge">Light-Up Scene</span>
               <h3>Magic Coffee House DIY Book Nook Kit</h3>
+              <p>Warm café styling for shoppers who want cozy display atmosphere.</p>
               <div class="price">From HK$579</div>
-              <a class="btn btn-primary" href="#">View Details</a>
+              <a class="btn primary" href="#">View Product</a>
             </div>
           </article>
           <article class="product-card">
-            <img src="https://img-va.myshopline.com/image/store/1666112052493/9-66.jpg?w=1000&h=1000" alt="Spacetime Museum DIY Book Nook Kit" />
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/9-66.jpg?w=1000&h=1000" alt="Spacetime Museum" />
             <div class="product-body">
-              <span class="pill">Collector Favorite</span>
+              <span class="badge">Collector Favorite</span>
               <h3>Spacetime Museum DIY Book Nook Kit</h3>
+              <p>A more detailed, dramatic kit for customers who want wow factor.</p>
               <div class="price">From HK$595</div>
-              <a class="btn btn-primary" href="#">View Details</a>
+              <a class="btn primary" href="#">View Product</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="why">
+    <!-- Section: image-with-text -->
+    <section class="section">
+      <div class="container split-banner">
+        <div class="split-copy">
+          <span class="eyebrow">Section 4 · Image with text</span>
+          <h2>Keep the brand magic, but make the page easier to buy from</h2>
+          <p>The current site already has enough product imagery. The real opportunity is improving section order, copy clarity, and CTA consistency so users know where to click next.</p>
+          <a class="btn primary" href="#why">See why this works better</a>
+        </div>
+        <div class="split-image">
+          <img src="https://img-va.myshopline.com/image/store/1666112052493/for-bnk.jpeg?w=2000&h=2000" alt="Magic Wand Store book nook" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: multicolumn -->
+    <section class="section" id="why">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Why this layout converts better</span>
-          <h2>Keep the visual magic, but make the page easier to buy from</h2>
-          <p>The current site already has usable imagery. The bigger issue is layout hierarchy, CTA consistency, and headline quality — not the raw visuals themselves.</p>
+          <span class="eyebrow">Section 5 · Multicolumn value props</span>
+          <h2>Three reasons this homepage structure is more Shopify-ready</h2>
         </div>
-        <div class="usp-grid">
-          <div class="card usp">
-            <h3>Stronger first impression</h3>
-            <p>The hero now says what the product is, why it matters, and who it is for — before the user starts scrolling.</p>
+        <div class="features-grid">
+          <div class="feature">
+            <h3>Better first-click clarity</h3>
+            <p>Users understand the product type, the emotional payoff, and the buying path in one screen instead of getting lost in sliders.</p>
           </div>
-          <div class="card usp">
-            <h3>Less homepage clutter</h3>
-            <p>One curated bestseller block beats several overlapping product strips competing for attention.</p>
+          <div class="feature">
+            <h3>Less carousel fatigue</h3>
+            <p>One featured collection section is easier to manage in Shopify and usually converts better than several repeated strips.</p>
           </div>
-          <div class="card usp">
-            <h3>Better use of current imagery</h3>
-            <p>Lifestyle product photos are moved into more premium-looking modules instead of getting buried inside carousels.</p>
+          <div class="feature">
+            <h3>Stronger merchandising</h3>
+            <p>Collection cards, featured products, and support signals each have a clear role, which is how real themes are usually structured.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container review-grid">
-        <div class="quote"><p>“Fun to build, beautiful on the shelf, and much more giftable than a standard craft kit.”</p><span>Shorter review treatment for homepage</span></div>
-        <div class="quote"><p>“The product photos already sell the atmosphere — the page just needs cleaner structure and stronger English copy.”</p><span>Redesign rationale</span></div>
-        <div class="quote"><p>“Warm lighting, tiny detail, and bookshelf impact should be the emotional center of the homepage.”</p><span>Positioning direction</span></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container cta-band">
-        <div>
-          <span class="eyebrow">Primary CTA</span>
-          <h2>Start with the most giftable, easiest-to-love kits</h2>
-          <p>This CTA block should replace weaker “View more” pathways and act as the homepage’s main conversion moment.</p>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="#bestsellers">Shop Best Sellers</a>
-          <a class="btn btn-secondary" href="#categories">Browse All Themes</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
+    <!-- Section: testimonials -->
+    <section class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Conversion FAQ</span>
-          <h2>Answer the buying questions earlier</h2>
+          <span class="eyebrow">Section 6 · Testimonials</span>
+          <h2>Shorter reviews work better on the homepage</h2>
+        </div>
+        <div class="reviews-grid">
+          <div class="review"><p>“Fun to build, beautiful on the shelf, and much more giftable than a standard craft kit.”</p><span>Homepage review treatment</span></div>
+          <div class="review"><p>“The visuals were already good — what this redesign fixes is the buying journey.”</p><span>Structure improvement note</span></div>
+          <div class="review"><p>“Warm lighting, tiny detail, and bookshelf impact should stay at the center of the brand story.”</p><span>Positioning direction</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: faq -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Section 7 · FAQ</span>
+          <h2>Conversion-first FAQ for homepage placement</h2>
         </div>
         <div class="faq-grid">
-          <div class="faq"><h4>Are these kits beginner-friendly?</h4><p>Yes. Recommend a few “best for first-time builders” products directly on the homepage.</p></div>
-          <div class="faq"><h4>What’s included in the box?</h4><p>State this more clearly near product entry points so users don’t need to guess.</p></div>
-          <div class="faq"><h4>How long does assembly take?</h4><p>Add estimated build time to product cards or collection pages to reduce hesitation.</p></div>
-          <div class="faq"><h4>What if a part is missing?</h4><p>Keep parts replacement visible near CTAs, not just buried in support pages.</p></div>
+          <div class="faq"><h4>Are these kits beginner-friendly?</h4><p>Yes. Shopify product cards or collection pages should flag a few recommended starter kits clearly.</p></div>
+          <div class="faq"><h4>What’s included in the box?</h4><p>Materials, instructions, and feature expectations should be visible before the user reaches the full product page.</p></div>
+          <div class="faq"><h4>How long does assembly take?</h4><p>Add an estimated time range on collection or PDP templates to lower hesitation.</p></div>
+          <div class="faq"><h4>What if a part is missing or damaged?</h4><p>Keep parts replacement visible high on the page instead of hiding it in support pages only.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: email signup -->
+    <section class="section">
+      <div class="container email-signup">
+        <div class="email-row">
+          <div class="email-copy">
+            <span class="eyebrow">Section 8 · Email signup</span>
+            <h2>Get new arrivals, exclusive deals, and gift-worthy picks</h2>
+            <p>This is closer to a real Shopify footer sign-up section: benefit-led copy instead of the generic “sign up and save”.</p>
+          </div>
+          <div class="email-form">
+            <input type="email" placeholder="Enter your email" />
+            <a class="btn primary" href="#">Get Early Access</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer">
+    <div class="container footer-grid">
       <div>
-        <div class="logo">Book Nook World<small>real-image redesign mockup</small></div>
-        <p>This version reuses current image assets from the live homepage to give you a more realistic preview direction.</p>
+        <div class="logo">Book Nook World<small>shopify landing mockup</small></div>
+        <p>This version is intentionally closer to a Shopify theme structure, so it is easier to discuss with design, theme editors, or developers.</p>
       </div>
       <div>
         <h4>Shop</h4>
@@ -333,10 +386,10 @@
         <a href="#">Returns</a>
       </div>
       <div>
-        <h4>Next step</h4>
-        <a href="#">Approve direction</a>
-        <a href="#">Convert to Shopify sections</a>
-        <a href="#">Finalize copy</a>
+        <h4>Next Step</h4>
+        <a href="#">Map to theme sections</a>
+        <a href="#">Finalize homepage copy</a>
+        <a href="#">Prepare developer handoff</a>
       </div>
     </div>
   </footer>
