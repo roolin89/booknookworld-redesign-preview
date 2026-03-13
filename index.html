@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Nook World — Redesign Mockup (Real Images)</title>
+  <style>
+    :root{
+      --bg:#f6f1ea;
+      --paper:#fffdf9;
+      --ink:#2b211b;
+      --muted:#6d6055;
+      --line:#eadfce;
+      --brand:#7a4b31;
+      --brand-dark:#5e3824;
+      --gold:#d5a15d;
+      --shadow:0 18px 40px rgba(77,49,31,.10);
+      --radius:20px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#fcf8f2 0%,#f4ede3 100%)}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+    .topbar{background:#2d2018;color:#f7eee7;font-size:13px}
+    .topbar .container{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:10px 0}
+    .nav-wrap{position:sticky;top:0;z-index:10;background:rgba(252,248,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(122,75,49,.08)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
+    .logo{font-size:25px;font-weight:800;letter-spacing:-.03em}
+    .logo small{display:block;font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+    .nav-links{display:flex;gap:22px;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-weight:700;transition:.2s ease}
+    .btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
+    .btn-primary:hover{background:var(--brand-dark)}
+    .btn-secondary{border:1px solid var(--line);background:#fff}
+    .eyebrow{display:inline-block;background:rgba(122,75,49,.08);color:var(--brand);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .hero{padding:42px 0 28px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:stretch}
+    .hero-copy,.hero-media,.card,.product-card,.quote,.faq,.cta-band{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero-copy{padding:42px}
+    h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.045em;margin:16px 0}
+    .lead{font-size:20px;line-height:1.6;color:var(--muted);margin:0 0 24px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+    .mini-points{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .mini-points div{padding:16px;border-radius:16px;background:#fbf6ef;border:1px solid #eee1d1;font-size:14px;color:var(--muted)}
+    .mini-points strong{display:block;color:var(--ink);margin-bottom:4px}
+    .hero-media{overflow:hidden;position:relative;min-height:620px}
+    .hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-badge{position:absolute;left:20px;top:20px;background:rgba(43,33,27,.75);color:#fff;padding:10px 14px;border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+    .hero-overlay{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(255,250,245,.88);backdrop-filter:blur(12px);padding:18px;border-radius:18px}
+    .hero-overlay strong{font-size:18px}
+    section{padding:30px 0}
+    .section-head{margin-bottom:20px}
+    .section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:12px 0}
+    .section-head p{max-width:760px;color:var(--muted);font-size:18px;margin:0}
+    .metrics,.category-grid,.product-grid,.usp-grid,.review-grid,.faq-grid{display:grid;gap:18px}
+    .metrics{grid-template-columns:repeat(4,1fr)}
+    .metric{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+    .metric strong{display:block;font-size:34px;letter-spacing:-.04em}
+    .metric span{color:var(--muted)}
+    .category-grid{grid-template-columns:repeat(4,1fr)}
+    .card{overflow:hidden}
+    .card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+    .card-body{padding:20px}
+    .card-body h3{margin:0 0 8px;font-size:22px}
+    .card-body p{margin:0;color:var(--muted)}
+    .product-grid{grid-template-columns:repeat(4,1fr)}
+    .product-card{overflow:hidden}
+    .product-card img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f4eadf}
+    .product-body{padding:18px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(122,75,49,.08);color:var(--brand);font-size:12px;font-weight:800;margin-bottom:10px}
+    .product-body h3{font-size:20px;line-height:1.3;margin:0 0 10px}
+    .price{font-size:22px;font-weight:800;margin-bottom:14px}
+    .usp-grid{grid-template-columns:repeat(3,1fr)}
+    .usp{padding:24px}
+    .usp h3{margin:0 0 10px;font-size:22px}
+    .usp p{margin:0;color:var(--muted)}
+    .review-grid{grid-template-columns:repeat(3,1fr)}
+    .quote{padding:24px}
+    .quote p{font-size:19px;line-height:1.6;margin:0 0 12px}
+    .quote span{color:var(--muted);font-weight:600}
+    .cta-band{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:28px;background:linear-gradient(135deg,#fff7ec 0%,#f1e1d1 100%)}
+    .cta-band h2{margin:0 0 8px;font-size:34px;line-height:1.1}
+    .cta-band p{margin:0;color:var(--muted);max-width:700px}
+    .faq-grid{grid-template-columns:repeat(2,1fr)}
+    .faq{padding:22px}
+    .faq h4{margin:0 0 8px;font-size:18px}
+    .faq p{margin:0;color:var(--muted)}
+    footer{padding:36px 0 58px;color:var(--muted)}
+    .footer{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px}
+    .footer h4{color:var(--ink);margin:0 0 10px}
+    .footer a{display:block;margin:8px 0}
+    @media (max-width:980px){
+      .hero-grid,.metrics,.category-grid,.product-grid,.usp-grid,.review-grid,.faq-grid,.footer{grid-template-columns:1fr 1fr}
+      .mini-points{grid-template-columns:1fr}
+      .cta-band{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .hero-grid,.metrics,.category-grid,.product-grid,.usp-grid,.review-grid,.faq-grid,.footer{grid-template-columns:1fr}
+      .hero-copy,.card-body,.product-body,.usp,.quote,.faq,.cta-band{padding:20px}
+      .hero-media{min-height:420px}
+      .lead,.section-head p{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Free Shipping on All Orders</span>
+      <span>30-Day Returns</span>
+      <span>Parts Replacement Support</span>
+    </div>
+  </div>
+
+  <div class="nav-wrap">
+    <div class="container nav">
+      <div class="logo">Book Nook World<small>DIY Mini Worlds for Book Lovers</small></div>
+      <div class="nav-links">
+        <a href="#bestsellers">Best Sellers</a>
+        <a href="#categories">Shop by Theme</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="#bestsellers">Shop Best Sellers</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Redesigned with current site imagery</span>
+          <h1>Build a tiny world that glows between your books.</h1>
+          <p class="lead">DIY book nook kits, miniature houses, and wooden puzzles made for relaxing creativity, meaningful gifts, and bookshelf display that actually gets noticed.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#bestsellers">Shop Best Sellers</a>
+            <a class="btn btn-secondary" href="#categories">Browse Themes</a>
+          </div>
+          <div class="mini-points">
+            <div><strong>Gift-worthy</strong>Perfect for book lovers, crafters, and fantasy fans.</div>
+            <div><strong>Beginner-friendly</strong>Clear assembly flow with satisfying finished results.</div>
+            <div><strong>Display-ready</strong>Warm lighting and shelf impact are part of the appeal.</div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <span class="hero-badge">Current image style reused</span>
+          <img src="https://img-va.myshopline.com/image/store/1666112052493/Wisdom-Rings-Books-Repository-on-desk.jpg?w=1000&h=1000" alt="Wisdom Rings DIY Book Nook Kit on desk" />
+          <div class="hero-overlay">
+            <strong>Real image direction:</strong>
+            use cozy desk / bookshelf lifestyle shots like the current Wisdom Rings and Hogsmoor visuals, but give them stronger copy and a cleaner CTA hierarchy.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container metrics">
+        <div class="metric"><strong>20,000+</strong><span>happy customers moved near the top</span></div>
+        <div class="metric"><strong>Free</strong><span>shipping promise kept visible</span></div>
+        <div class="metric"><strong>30-Day</strong><span>return reassurance before product blocks</span></div>
+        <div class="metric"><strong>DIY</strong><span>relaxing craft + bookshelf decor positioning</span></div>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Shop by category</span>
+          <h2>Make the homepage easier to scan</h2>
+          <p>Instead of stacking repeated carousels, this version uses your existing category images to create a cleaner “choose your style” section.</p>
+        </div>
+        <div class="category-grid">
+          <article class="card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/-(22).jpg?w=800&h=800" alt="Book Nooks" />
+            <div class="card-body">
+              <h3>Book Nook Kits</h3>
+              <p>Magical bookshelf inserts for readers, collectors, and gift buyers.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/-02--6.jpeg?w=800&h=800" alt="DIY Miniature Kit" />
+            <div class="card-body">
+              <h3>DIY Miniature Houses</h3>
+              <p>Immersive mini builds for cozy, screen-free creative time.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/-(11).jpg?w=800&h=800" alt="3D Mechanical Wooden Puzzle Kit" />
+            <div class="card-body">
+              <h3>3D Wooden Puzzles</h3>
+              <p>Mechanical builds for shoppers who want motion, detail, and display value.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/wall.jpeg?w=2048&h=2048" alt="Story Frame" />
+            <div class="card-body">
+              <h3>Story Frame Series</h3>
+              <p>More decorative, giftable products with stronger visual shelf appeal.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="bestsellers">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Primary product section</span>
+          <h2>Best sellers with real current product photos</h2>
+          <p>I reused actual images already on the site, but reorganized them into one clearer conversion block instead of multiple scattered sliders.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/jimeng-2025-11-26-6012-.webp?w=2048&h=2048" alt="Hogsmoor Station DIY Book Nook Kit" />
+            <div class="product-body">
+              <span class="pill">#1 Gift Pick</span>
+              <h3>Hogsmoor Station DIY Book Nook Kit</h3>
+              <div class="price">From HK$391</div>
+              <a class="btn btn-primary" href="#">View Details</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/02.jpg?w=1600&h=1600" alt="Wisdom Rings DIY Book Nook Kit" />
+            <div class="product-body">
+              <span class="pill">Beginner Friendly</span>
+              <h3>Wisdom Rings DIY Book Nook Kit</h3>
+              <div class="price">From HK$469</div>
+              <a class="btn btn-primary" href="#">View Details</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/7-2384c068-4c8c-48cb-8983-05105f18b536.jpeg?w=1000&h=1000" alt="Magic Coffee House DIY Book Nook Kit" />
+            <div class="product-body">
+              <span class="pill">Light-Up Scene</span>
+              <h3>Magic Coffee House DIY Book Nook Kit</h3>
+              <div class="price">From HK$579</div>
+              <a class="btn btn-primary" href="#">View Details</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="https://img-va.myshopline.com/image/store/1666112052493/9-66.jpg?w=1000&h=1000" alt="Spacetime Museum DIY Book Nook Kit" />
+            <div class="product-body">
+              <span class="pill">Collector Favorite</span>
+              <h3>Spacetime Museum DIY Book Nook Kit</h3>
+              <div class="price">From HK$595</div>
+              <a class="btn btn-primary" href="#">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why this layout converts better</span>
+          <h2>Keep the visual magic, but make the page easier to buy from</h2>
+          <p>The current site already has usable imagery. The bigger issue is layout hierarchy, CTA consistency, and headline quality — not the raw visuals themselves.</p>
+        </div>
+        <div class="usp-grid">
+          <div class="card usp">
+            <h3>Stronger first impression</h3>
+            <p>The hero now says what the product is, why it matters, and who it is for — before the user starts scrolling.</p>
+          </div>
+          <div class="card usp">
+            <h3>Less homepage clutter</h3>
+            <p>One curated bestseller block beats several overlapping product strips competing for attention.</p>
+          </div>
+          <div class="card usp">
+            <h3>Better use of current imagery</h3>
+            <p>Lifestyle product photos are moved into more premium-looking modules instead of getting buried inside carousels.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container review-grid">
+        <div class="quote"><p>“Fun to build, beautiful on the shelf, and much more giftable than a standard craft kit.”</p><span>Shorter review treatment for homepage</span></div>
+        <div class="quote"><p>“The product photos already sell the atmosphere — the page just needs cleaner structure and stronger English copy.”</p><span>Redesign rationale</span></div>
+        <div class="quote"><p>“Warm lighting, tiny detail, and bookshelf impact should be the emotional center of the homepage.”</p><span>Positioning direction</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container cta-band">
+        <div>
+          <span class="eyebrow">Primary CTA</span>
+          <h2>Start with the most giftable, easiest-to-love kits</h2>
+          <p>This CTA block should replace weaker “View more” pathways and act as the homepage’s main conversion moment.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#bestsellers">Shop Best Sellers</a>
+          <a class="btn btn-secondary" href="#categories">Browse All Themes</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Conversion FAQ</span>
+          <h2>Answer the buying questions earlier</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq"><h4>Are these kits beginner-friendly?</h4><p>Yes. Recommend a few “best for first-time builders” products directly on the homepage.</p></div>
+          <div class="faq"><h4>What’s included in the box?</h4><p>State this more clearly near product entry points so users don’t need to guess.</p></div>
+          <div class="faq"><h4>How long does assembly take?</h4><p>Add estimated build time to product cards or collection pages to reduce hesitation.</p></div>
+          <div class="faq"><h4>What if a part is missing?</h4><p>Keep parts replacement visible near CTAs, not just buried in support pages.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer">
+      <div>
+        <div class="logo">Book Nook World<small>real-image redesign mockup</small></div>
+        <p>This version reuses current image assets from the live homepage to give you a more realistic preview direction.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#">Book Nooks</a>
+        <a href="#">Miniature Kits</a>
+        <a href="#">Wooden Puzzles</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+      <div>
+        <h4>Next step</h4>
+        <a href="#">Approve direction</a>
+        <a href="#">Convert to Shopify sections</a>
+        <a href="#">Finalize copy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
