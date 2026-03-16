@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Nook World — High Conversion Homepage Wireframe</title>
+  <style>
+    :root {
+      --bg: #f6f1ea;
+      --paper: #fffaf4;
+      --card: #ffffff;
+      --ink: #2f241d;
+      --muted: #6f6259;
+      --line: #e5d8ca;
+      --accent: #7a4b2f;
+      --accent-2: #d89f63;
+      --dark: #1f1712;
+      --success: #365b43;
+      --shadow: 0 12px 30px rgba(43, 26, 14, 0.08);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbf7f1 0%, #f4ede4 100%);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .announcement {
+      background: var(--dark);
+      color: #fff7ef;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px 16px;
+      letter-spacing: .2px;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(251,247,241,.84);
+      border-bottom: 1px solid rgba(122,75,47,.08);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 20px;
+    }
+    .brand { font-weight: 800; letter-spacing: .3px; }
+    .nav-links { display: flex; gap: 18px; color: var(--muted); font-size: 14px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+    .btn-primary { background: var(--accent); color: white; box-shadow: var(--shadow); }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-secondary { background: white; border: 1px solid var(--line); color: var(--ink); }
+    .hero {
+      padding: 56px 0 24px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: #f0e1d3;
+      color: var(--accent);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.02;
+      margin: 0 0 16px;
+      letter-spacing: -1.4px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 0 22px;
+    }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+    .mini-points { display: flex; gap: 10px; flex-wrap: wrap; }
+    .mini-points span {
+      background: rgba(255,255,255,.8);
+      border: 1px solid var(--line);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .hero-visual {
+      background: radial-gradient(circle at top, #ecd4be 0%, #d4b090 42%, #a87957 100%);
+      border-radius: 28px;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .shelf {
+      position: absolute;
+      inset: auto 24px 30px 24px;
+      background: rgba(48,28,15,.18);
+      border-radius: 22px;
+      padding: 24px;
+      backdrop-filter: blur(6px);
+      color: #fff8f2;
+    }
+    .fake-booknook {
+      position: absolute;
+      right: 48px;
+      top: 56px;
+      width: 260px;
+      height: 340px;
+      background: linear-gradient(180deg, #5a3728 0%, #311d15 100%);
+      border-radius: 18px;
+      border: 8px solid #26160f;
+      box-shadow: 0 18px 50px rgba(0,0,0,.2);
+    }
+    .fake-booknook:before, .fake-booknook:after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255,222,163,.75);
+      filter: blur(2px);
+    }
+    .fake-booknook:before { width: 86px; height: 86px; left: 84px; top: 36px; }
+    .fake-booknook:after { width: 120px; height: 12px; left: 62px; bottom: 40px; }
+    section { padding: 28px 0; }
+    .trust-bar, .card-grid, .theme-grid, .benefit-grid, .steps, .ugc-grid, .review-grid, .faq-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .trust-bar { grid-template-columns: repeat(4, 1fr); }
+    .trust-item, .card, .theme-card, .benefit, .step, .review, .faq, .guide-card {
+      background: rgba(255,255,255,.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .trust-item { padding: 18px; font-size: 14px; color: var(--muted); }
+    .trust-item strong { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 18px; }
+    .section-head h2 { margin: 0; font-size: clamp(26px, 4vw, 42px); letter-spacing: -.7px; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 680px; }
+    .card-grid { grid-template-columns: repeat(4, 1fr); }
+    .card { padding: 14px; }
+    .thumb {
+      height: 220px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ead8c8, #bf9471);
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .badge {
+      background: #f2e7dc;
+      color: var(--accent);
+      padding: 6px 9px;
+      font-size: 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .price { font-weight: 800; margin: 10px 0; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .theme-grid { grid-template-columns: repeat(3, 1fr); }
+    .theme-card { padding: 24px; min-height: 170px; background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(246,234,223,.95)); }
+    .benefit-grid { grid-template-columns: repeat(4, 1fr); }
+    .benefit, .step, .review, .faq, .guide-card { padding: 22px; }
+    .benefit h3, .step h3, .theme-card h3, .guide-card h3 { margin: 0 0 8px; }
+    .benefit p, .step p, .theme-card p, .review p, .faq p, .guide-card p { margin: 0; color: var(--muted); }
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .step-num {
+      width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 999px; background: #f0e1d3; color: var(--accent); font-weight: 800; margin-bottom: 12px;
+    }
+    .gift-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      background: linear-gradient(135deg, #2f2119, #6a4330 70%, #a16545);
+      color: #fff7f0;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .gift-pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 24px; }
+    .gift-pills span {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 9px 12px; border-radius: 999px; font-size: 13px;
+    }
+    .gift-box {
+      min-height: 260px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.05));
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .guide-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .ugc-grid, .review-grid, .faq-grid { grid-template-columns: repeat(3, 1fr); }
+    .ugc {
+      height: 280px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #dfc6b0, #9b7153);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .ugc:after {
+      content: "Real shelf photo";
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      color: white;
+      font-weight: 700;
+      background: rgba(0,0,0,.24);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+    .faq h3 { margin: 0 0 8px; font-size: 18px; }
+    .final-cta {
+      background: linear-gradient(180deg, #fffaf4, #f3e8dc);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    footer {
+      padding: 34px 0 64px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 18px; }
+    .footer-grid h4 { color: var(--ink); margin: 0 0 10px; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .gift-banner, .footer-grid { grid-template-columns: 1fr; }
+      .card-grid, .benefit-grid, .guide-grid, .theme-grid, .ugc-grid, .review-grid, .faq-grid, .steps, .trust-bar { grid-template-columns: repeat(2, 1fr); }
+      .hero-visual { min-height: 420px; }
+      .fake-booknook { right: 24px; width: 220px; height: 300px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .card-grid, .benefit-grid, .guide-grid, .theme-grid, .ugc-grid, .review-grid, .faq-grid, .steps, .trust-bar { grid-template-columns: 1fr; }
+      .hero { padding-top: 28px; }
+      .hero-visual { min-height: 360px; }
+      .fake-booknook { width: 180px; height: 250px; right: 16px; top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Free Shipping Over $79 · Giftable DIY Book Nooks for Readers & Collectors</div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">Book Nook World</div>
+      <nav class="nav-links">
+        <a href="#best-sellers">Best Sellers</a>
+        <a href="#themes">Themes</a>
+        <a href="#gift">Gift Ideas</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary" href="#best-sellers">Shop Best Sellers</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">High-Conversion Homepage Prototype</div>
+          <h1>Book Nook Kits That Turn Shelves Into Tiny Worlds</h1>
+          <p>Beautiful DIY book nooks for book lovers, collectors, and unforgettable gifts — designed to look magical on the shelf and feel satisfying to build.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#best-sellers">Shop Best Sellers</a>
+            <a class="btn btn-secondary" href="#themes">Browse Themes</a>
+          </div>
+          <div class="mini-points">
+            <span>Beginner-Friendly</span>
+            <span>Giftable</span>
+            <span>Display-Worthy</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="fake-booknook"></div>
+          <div class="shelf">
+            <strong>Hero visual intent</strong><br />
+            Use your strongest finished product image + one real bookshelf placement shot here.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container trust-bar">
+        <div class="trust-item"><strong>4.8★ Customer Rating</strong>Short, credible trust proof near the top.</div>
+        <div class="trust-item"><strong>Worldwide Shipping</strong>Reassures global buyers early.</div>
+        <div class="trust-item"><strong>Gift-Ready Designs</strong>Great for birthdays, holidays, and surprise gifts.</div>
+        <div class="trust-item"><strong>Easy-to-Follow DIY Kits</strong>Handles the “is it hard?” objection fast.</div>
+      </div>
+    </section>
+
+    <section id="best-sellers">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Best-Selling Book Nooks</h2>
+            <p>Put your top-converting SKUs first. Cold traffic usually wants the fastest path to “what should I buy?”</p>
+          </div>
+          <a class="btn btn-secondary" href="#">View All</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="thumb"></div>
+            <div class="badge-row"><span class="badge">Bestseller</span><span class="badge">Gift Favorite</span></div>
+            <strong>Moonlit Library Alley</strong>
+            <div class="meta">4.9★ · 1,280 reviews</div>
+            <div class="price">$89.00</div>
+            <a class="btn btn-primary" href="#">Shop Now</a>
+          </article>
+          <article class="card">
+            <div class="thumb"></div>
+            <div class="badge-row"><span class="badge">Beginner Friendly</span></div>
+            <strong>Enchanted Forest Lane</strong>
+            <div class="meta">4.8★ · 942 reviews</div>
+            <div class="price">$79.00</div>
+            <a class="btn btn-primary" href="#">Shop Now</a>
+          </article>
+          <article class="card">
+            <div class="thumb"></div>
+            <div class="badge-row"><span class="badge">Lights Up</span></div>
+            <strong>Midnight Detective Street</strong>
+            <div class="meta">4.7★ · 665 reviews</div>
+            <div class="price">$95.00</div>
+            <a class="btn btn-primary" href="#">Shop Now</a>
+          </article>
+          <article class="card">
+            <div class="thumb"></div>
+            <div class="badge-row"><span class="badge">Collector Pick</span></div>
+            <strong>Tokyo Book Passage</strong>
+            <div class="meta">4.9★ · 734 reviews</div>
+            <div class="price">$99.00</div>
+            <a class="btn btn-primary" href="#">Shop Now</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="themes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Shop by Theme</h2>
+            <p>Help people self-select fast by taste, mood, and gifting intent.</p>
+          </div>
+        </div>
+        <div class="theme-grid">
+          <div class="theme-card"><h3>Fantasy & Magic</h3><p>For readers who want wonder, mystery, and glowing fantasy scenes.</p></div>
+          <div class="theme-card"><h3>Vintage Library</h3><p>Classic old-world shelves, warm lighting, and cozy literary charm.</p></div>
+          <div class="theme-card"><h3>Gift Ideas</h3><p>Curated picks for birthdays, holidays, and unforgettable surprise gifts.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Why Book Nook World</h2>
+            <p>This section should sell the outcome, not just list features.</p>
+          </div>
+        </div>
+        <div class="benefit-grid">
+          <div class="benefit"><h3>Immersive Shelf Decor</h3><p>Turn an ordinary bookshelf into a miniature story world.</p></div>
+          <div class="benefit"><h3>Relaxing DIY Experience</h3><p>More than a product — it’s a satisfying build process people enjoy.</p></div>
+          <div class="benefit"><h3>Perfect Gift for Readers</h3><p>Stronger emotional impact than a generic decorative gift.</p></div>
+          <div class="benefit"><h3>Display-Worthy Result</h3><p>The final piece feels collectible, photogenic, and worth showing off.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>How It Works</h2>
+            <p>Kill the biggest objection: “Will this be too hard for me?”</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><h3>Choose Your World</h3><p>Pick a theme that matches your shelf, taste, or gifting need.</p></div>
+          <div class="step"><div class="step-num">2</div><h3>Build with Guided Pieces</h3><p>Step-by-step assembly with organized components and a clear path.</p></div>
+          <div class="step"><div class="step-num">3</div><h3>Display It Proudly</h3><p>Place it on your shelf and get the “where did you get that?” reaction.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gift">
+      <div class="container">
+        <div class="gift-banner">
+          <div>
+            <div class="eyebrow" style="background: rgba(255,255,255,.14); color: #fff7ef;">Gift-Focused Conversion Block</div>
+            <h2 style="margin:0 0 10px; font-size: clamp(28px, 4vw, 44px); line-height:1.05;">A Gift Book Lovers Actually Remember</h2>
+            <p style="margin:0; color: rgba(255,247,240,.82);">Thoughtful, creative, and display-worthy gifts for readers, collectors, and DIY lovers.</p>
+            <div class="gift-pills">
+              <span>Birthday Gifts</span>
+              <span>Christmas Gifts</span>
+              <span>Gifts for Her</span>
+              <span>Gifts for Mom</span>
+              <span>Reader Gifts</span>
+            </div>
+            <a class="btn btn-primary" href="#">Shop Gift Favorites</a>
+          </div>
+          <div class="gift-box"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Find Your Perfect Book Nook</h2>
+            <p>Give first-time buyers a low-friction decision shortcut.</p>
+          </div>
+        </div>
+        <div class="guide-grid">
+          <div class="guide-card"><h3>For Beginners</h3><p>Easy builds with strong shelf payoff.</p></div>
+          <div class="guide-card"><h3>For Collectors</h3><p>High-detail scenes worth displaying long-term.</p></div>
+          <div class="guide-card"><h3>For Gifts</h3><p>High emotional impact and broad appeal.</p></div>
+          <div class="guide-card"><h3>With LED Lights</h3><p>Extra shelf drama and night-time magic.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Customer Shelf Showcase</h2>
+            <p>Prove the product still looks amazing outside official photography.</p>
+          </div>
+        </div>
+        <div class="ugc-grid">
+          <div class="ugc"></div>
+          <div class="ugc"></div>
+          <div class="ugc"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>What Customers Say</h2>
+            <p>Short review snippets convert better than walls of text.</p>
+          </div>
+        </div>
+        <div class="review-grid">
+          <div class="review"><p>“Absolutely magical on my bookshelf. It looks even better in person.”</p></div>
+          <div class="review"><p>“The best gift I bought this year. She loved both the build and the final result.”</p></div>
+          <div class="review"><p>“I was worried it would be hard, but it was actually relaxing and fun to put together.”</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>FAQ</h2>
+            <p>Answer purchase objections before they become drop-offs.</p>
+          </div>
+        </div>
+        <div class="faq-grid">
+          <div class="faq"><h3>Is it hard to assemble?</h3><p>Offer a short answer that reduces anxiety and points beginners to easier kits.</p></div>
+          <div class="faq"><h3>How long does it take?</h3><p>Set realistic expectations so people know what they’re buying into.</p></div>
+          <div class="faq"><h3>Is it suitable as a gift?</h3><p>Reinforce emotional value, presentation, and gifting appeal.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container final-cta">
+        <h2 style="margin:0 0 10px; font-size: clamp(28px, 4vw, 46px);">Find the Book Nook That Belongs on Your Shelf</h2>
+        <p style="margin:0 0 22px; color: var(--muted);">This final block should push browsing users back into product selection with one strong primary action.</p>
+        <div class="cta-row" style="justify-content:center; margin-bottom:0;">
+          <a class="btn btn-primary" href="#best-sellers">Shop Best Sellers</a>
+          <a class="btn btn-secondary" href="#gift">Browse Gift Favorites</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px;">Book Nook World</div>
+        <div>High-conversion homepage sample built from the wireframe table for preview and iteration.</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <div>Best Sellers</div>
+        <div>Themes</div>
+        <div>Gift Ideas</div>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <div>FAQ</div>
+        <div>Shipping</div>
+        <div>Returns</div>
+      </div>
+      <div>
+        <h4>About</h4>
+        <div>Contact</div>
+        <div>Privacy Policy</div>
+        <div>Instagram</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
