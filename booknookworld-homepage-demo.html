@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookNookWorld Homepage Demo</title>
+  <meta name="description" content="Production-style homepage demo for BookNookWorld." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-primary: #2F241E;
+      --text-secondary: #43352C;
+      --text-muted: #8E7E6F;
+      --bg-page: #FFFDF9;
+      --bg-soft: #F7F1E8;
+      --bg-card: #FFFFFF;
+      --border: #EAE2D7;
+      --brand: #2F241E;
+      --brand-2: #6E4E37;
+      --green: #5E6B52;
+      --gold: #C8A96B;
+      --rose: #C89B93;
+      --shadow-s: 0 4px 12px rgba(47,36,30,0.06);
+      --shadow-m: 0 14px 32px rgba(47,36,30,0.08);
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --radius-xl: 28px;
+      --container: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text-secondary);
+      background: linear-gradient(180deg, #fffdf9 0%, #fbf7f1 100%);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 88px 0; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text-primary);
+      margin: 0 0 16px;
+      line-height: 1.08;
+    }
+    h1 { font-size: clamp(42px, 6vw, 68px); }
+    h2 { font-size: clamp(32px, 4vw, 46px); }
+    h3 { font-size: 28px; }
+    p { margin: 0 0 16px; line-height: 1.7; }
+    .muted { color: var(--text-muted); }
+    .center { text-align: center; }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+    .section-head.row {
+      max-width: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+    }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      padding: 0 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: .2s ease;
+      border: 1px solid transparent;
+    }
+    .btn.primary {
+      background: var(--brand);
+      color: #fffdf9;
+      box-shadow: var(--shadow-s);
+    }
+    .btn.primary:hover { background: #43352C; transform: translateY(-1px); }
+    .btn.secondary {
+      border-color: var(--brand-2);
+      color: var(--brand-2);
+      background: transparent;
+    }
+    .btn.secondary:hover { background: var(--bg-soft); }
+    .link-arrow { color: var(--brand-2); font-weight: 700; white-space: nowrap; }
+
+    .announcement {
+      background: var(--brand);
+      color: #F7F1E8;
+      font-size: 14px;
+      padding: 12px 0;
+      overflow: hidden;
+    }
+    .announcement .track {
+      display: flex;
+      gap: 28px;
+      white-space: nowrap;
+      animation: marquee 24s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-25%); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(255,253,249,.88);
+      border-bottom: 1px solid rgba(234,226,215,.8);
+    }
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .nav-links, .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 15px;
+    }
+    .nav-links a:hover { color: var(--brand-2); }
+    .icon-pill {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.7);
+    }
+
+    .hero {
+      padding: 64px 0 42px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .hero-copy p {
+      font-size: 18px;
+      max-width: 620px;
+    }
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .trust-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.8);
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 620px;
+    }
+    .hero-card-main,
+    .floating-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-m);
+      border: 1px solid rgba(234,226,215,.85);
+      background: #fff;
+    }
+    .hero-card-main {
+      height: 100%;
+      min-height: 620px;
+      background:
+        linear-gradient(180deg, rgba(47,36,30,.08), rgba(47,36,30,.18)),
+        url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=80') center/cover;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      background: rgba(255, 248, 240, .88);
+      border: 1px solid rgba(234,226,215,.9);
+      border-radius: 22px;
+      padding: 18px 20px;
+      backdrop-filter: blur(8px);
+    }
+    .floating-card {
+      position: absolute;
+      background: rgba(255,253,249,.96);
+      padding: 16px 18px;
+      max-width: 220px;
+    }
+    .floating-card small { display: block; color: var(--green); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+    .floating-card.one { top: 24px; left: -18px; }
+    .floating-card.two { right: -14px; bottom: 82px; }
+
+    .grid-6, .grid-4, .grid-3 {
+      display: grid;
+      gap: 24px;
+    }
+    .grid-6 { grid-template-columns: repeat(6, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-s);
+      overflow: hidden;
+    }
+    .theme-card .media,
+    .product-card .media,
+    .blog-card .media,
+    .ugc-shot {
+      aspect-ratio: 4 / 5;
+      background-size: cover;
+      background-position: center;
+    }
+    .theme-card .body,
+    .product-card .body,
+    .blog-card .body {
+      padding: 18px;
+    }
+    .theme-card h3,
+    .product-card h3,
+    .blog-card h3 { font-family: 'Inter', sans-serif; font-size: 18px; margin-bottom: 8px; }
+    .theme-card:hover,
+    .product-card:hover,
+    .blog-card:hover { transform: translateY(-4px); transition: .2s ease; }
+
+    .product-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .badge.gold { background: #f3ead9; color: #9a7940; }
+    .badge.green { background: #edf2ea; color: var(--green); }
+    .badge.rose { background: #f8ecea; color: #9b6d66; }
+    .meta-row, .price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .stars { color: var(--gold); font-size: 14px; }
+    .price { font-size: 18px; font-weight: 800; color: var(--text-primary); }
+
+    .soft-block {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 36px;
+    }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .feature-card { background: rgba(255,255,255,.62); padding: 24px; border-radius: 20px; border: 1px solid rgba(234,226,215,.9); }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+      background: #fff; color: var(--brand-2); font-weight: 800; margin-bottom: 14px;
+    }
+    .feature-card h3 { font-family: 'Inter', sans-serif; font-size: 18px; }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .how-visual {
+      min-height: 520px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(47,36,30,.12), rgba(47,36,30,.2)),
+        url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?auto=format&fit=crop&w=1200&q=80') center/cover;
+      box-shadow: var(--shadow-m);
+    }
+    .steps { display: grid; gap: 16px; }
+    .step {
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-s);
+    }
+    .step-no {
+      display: inline-flex;
+      width: 40px; height: 40px; border-radius: 999px;
+      align-items: center; justify-content: center;
+      background: var(--bg-soft); color: var(--brand-2); font-weight: 800; margin-bottom: 14px;
+    }
+
+    .banner-story {
+      min-height: 520px;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-m);
+      background:
+        linear-gradient(180deg, rgba(25,18,14,.12), rgba(25,18,14,.52)),
+        url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=80') center/cover;
+    }
+    .banner-story .content {
+      position: absolute;
+      left: 40px;
+      bottom: 38px;
+      max-width: 560px;
+      color: #fffaf3;
+    }
+    .banner-story h2 { color: #fffaf3; }
+
+    .ugc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 24px; }
+    .ugc-shot {
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-s);
+      min-height: 280px;
+    }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .review-card { padding: 24px; }
+
+    .gift-grid,
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .gift-media,
+    .about-media {
+      min-height: 460px;
+      border-radius: 28px;
+      box-shadow: var(--shadow-m);
+      border: 1px solid var(--border);
+      background-size: cover;
+      background-position: center;
+    }
+    .gift-media {
+      background:
+        linear-gradient(180deg, rgba(47,36,30,.08), rgba(47,36,30,.16)),
+        url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .about-media {
+      background:
+        linear-gradient(180deg, rgba(47,36,30,.06), rgba(47,36,30,.14)),
+        url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 24px; }
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .faq-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+    details {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow-s);
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    summary::-webkit-details-marker { display: none; }
+    details p { margin-top: 12px; }
+
+    .email-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 46px 24px;
+      text-align: center;
+    }
+    .signup {
+      max-width: 620px;
+      margin: 26px auto 0;
+      display: flex;
+      gap: 12px;
+    }
+    .signup input {
+      flex: 1;
+      height: 54px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 0 16px;
+      font: inherit;
+      background: #fff;
+    }
+
+    footer {
+      background: var(--brand);
+      color: #f4ece2;
+      margin-top: 88px;
+      padding: 68px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(4, 1fr);
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+    .footer-grid h4 { margin: 0 0 14px; color: #fff8ef; }
+    .footer-grid a { display: block; margin: 10px 0; color: rgba(244,236,226,.8); }
+    .footer-grid a:hover { color: #fff8ef; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,248,239,.12);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: rgba(244,236,226,.68);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1080px) {
+      .grid-6 { grid-template-columns: repeat(3, 1fr); }
+      .grid-4, .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid, .how-grid, .gift-grid, .about-grid { grid-template-columns: 1fr; }
+      .review-grid { grid-template-columns: 1fr; }
+      .ugc-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-visual { min-height: 540px; }
+      .floating-card.one { left: 10px; }
+      .floating-card.two { right: 10px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 64px 0; }
+      .nav { height: auto; padding: 14px 0; flex-wrap: wrap; }
+      .nav-links { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
+      .grid-6, .grid-4, .grid-3, .feature-grid, .ugc-grid { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .theme-card .media, .product-card .media { aspect-ratio: 4/4.8; }
+      .hero { padding-top: 34px; }
+      .hero-card-main { min-height: 460px; }
+      .floating-card { position: static; margin-top: 14px; max-width: none; }
+      .section-head.row { flex-direction: column; align-items: start; }
+      .gift-media, .about-media, .how-visual { min-height: 320px; }
+      .banner-story .content { left: 22px; right: 22px; bottom: 22px; }
+      .signup { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .grid-6, .grid-4, .feature-grid, .ugc-grid { grid-template-columns: 1fr; }
+      .btns { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">
+    <div class="container">
+      <div class="track">
+        <span>Free Shipping on Orders Over $59</span>
+        <span>•</span>
+        <span>Beginner-Friendly DIY Book Nook Kits</span>
+        <span>•</span>
+        <span>Replacement Parts Support</span>
+        <span>•</span>
+        <span>Perfect Gifts for Book Lovers</span>
+        <span>•</span>
+        <span>Create a Tiny World Between Your Books</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">BookNookWorld</div>
+      <nav class="nav-links">
+        <a href="#themes">Shop</a>
+        <a href="#best-sellers">Best Sellers</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#guides">Guides</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="nav-icons">
+        <div class="icon-pill">⌕</div>
+        <div class="icon-pill">♡</div>
+        <div class="icon-pill">🛒</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">DIY Miniature Book Nook Kits</span>
+          <h1>DIY Book Nook Kits That Turn Shelves Into Tiny Worlds</h1>
+          <p>Build immersive miniature scenes with light, detail, and story — perfect for gifting, collecting, and relaxing creative time. Designed for readers, makers, and anyone who loves beautiful little worlds.</p>
+          <div class="btns" style="margin-top: 24px;">
+            <a class="btn primary" href="#best-sellers">Shop Best Sellers</a>
+            <a class="btn secondary" href="#themes">Explore Collections</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-pill">Beginner Friendly</span>
+            <span class="trust-pill">LED Details</span>
+            <span class="trust-pill">Gift-Worthy Design</span>
+            <span class="trust-pill">Display-Ready Result</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="floating-card one">
+            <small>Gift Pick</small>
+            <strong>A memorable present for readers, collectors, and crafters.</strong>
+          </div>
+          <div class="hero-card-main">
+            <div class="hero-overlay">
+              <strong style="display:block; color: var(--text-primary); margin-bottom: 8px;">Discover calm and creativity</strong>
+              <span class="muted">Part décor, part story, part hands-on ritual — each build becomes a conversation piece on your shelf.</span>
+            </div>
+          </div>
+          <div class="floating-card two">
+            <small>Best Seller</small>
+            <strong>Atmospheric scenes with rich details and warm shelf lighting.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="themes" class="section">
+      <div class="container">
+        <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+          <span class="eyebrow">Shop by Theme</span>
+          <h2>Find Your Favorite Tiny World</h2>
+          <p class="muted">From fantasy alleys to vintage libraries, discover a scene that adds atmosphere and personality to your bookshelf.</p>
+        </div>
+        <div class="grid-6">
+          <a class="card theme-card" href="#">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><h3>Classic Library</h3><p class="muted">Timeless shelves, warm lamps, old-world charm.</p></div>
+          </a>
+          <a class="card theme-card" href="#">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><h3>Fantasy Worlds</h3><p class="muted">Magical corners and storybook wonder.</p></div>
+          </a>
+          <a class="card theme-card" href="#">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><h3>Japanese Streets</h3><p class="muted">Lanterns, alleys, and glowing evening scenes.</p></div>
+          </a>
+          <a class="card theme-card" href="#">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><h3>Detective & Mystery</h3><p class="muted">Moody details and cinematic storytelling.</p></div>
+          </a>
+          <a class="card theme-card" href="#">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><h3>Cozy Homes</h3><p class="muted">Small spaces filled with warmth and detail.</p></div>
+          </a>
+          <a class="card theme-card" href="#">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><h3>Holiday Editions</h3><p class="muted">Gift-ready seasonal scenes to collect or share.</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="best-sellers" class="section">
+      <div class="container">
+        <div class="section-head row">
+          <div>
+            <span class="eyebrow">Customer Favorites</span>
+            <h2>Best-Selling Book Nook Kits</h2>
+            <p class="muted">Chosen for their detail, atmosphere, and satisfying build experience.</p>
+          </div>
+          <a class="link-arrow" href="#">View All Best Sellers →</a>
+        </div>
+        <div class="grid-4">
+          <article class="card product-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body">
+              <div class="product-badges"><span class="badge gold">Best Seller</span><span class="badge green">With LED</span></div>
+              <h3>Midnight Library Alley</h3>
+              <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">128 reviews</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$69.00</span><a class="link-arrow" href="#">Shop →</a></div>
+            </div>
+          </article>
+          <article class="card product-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body">
+              <div class="product-badges"><span class="badge green">Beginner Friendly</span><span class="badge rose">Gift Pick</span></div>
+              <h3>Moonlit Story Street</h3>
+              <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">94 reviews</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$59.00</span><a class="link-arrow" href="#">Shop →</a></div>
+            </div>
+          </article>
+          <article class="card product-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body">
+              <div class="product-badges"><span class="badge gold">Collector Pick</span><span class="badge green">4–6 Hour Build</span></div>
+              <h3>Lantern Walk Kyoto</h3>
+              <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">86 reviews</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$72.00</span><a class="link-arrow" href="#">Shop →</a></div>
+            </div>
+          </article>
+          <article class="card product-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body">
+              <div class="product-badges"><span class="badge rose">Gift Favorite</span><span class="badge green">Display Ready</span></div>
+              <h3>Cozy Corner Bookshop</h3>
+              <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">143 reviews</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$65.00</span><a class="link-arrow" href="#">Shop →</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section">
+      <div class="container soft-block">
+        <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+          <span class="eyebrow">Why BookNookWorld</span>
+          <h2>Designed to Feel Special Before, During, and After the Build</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Story-Driven Design</h3>
+            <p class="muted">Each kit feels like a miniature world with character, atmosphere, and depth.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">☼</div>
+            <h3>Relaxing Hands-On Experience</h3>
+            <p class="muted">A creative break from screens with a rewarding process you can enjoy at your own pace.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎁</div>
+            <h3>Giftable and Display-Ready</h3>
+            <p class="muted">Beautifully memorable for birthdays, holidays, and book lovers who want something unique.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚙</div>
+            <h3>Parts Replacement Support</h3>
+            <p class="muted">If something goes wrong during assembly, our support team is here to help.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head row">
+          <div>
+            <span class="eyebrow">How It Works</span>
+            <h2>Easy to Build, Rewarding to Display</h2>
+          </div>
+        </div>
+        <div class="how-grid">
+          <div class="how-visual"></div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-no">01</div>
+              <h3>Choose Your Scene</h3>
+              <p class="muted">Pick a tiny world that fits your shelf, your taste, or the occasion you’re gifting for.</p>
+            </div>
+            <div class="step">
+              <div class="step-no">02</div>
+              <h3>Build at Your Own Pace</h3>
+              <p class="muted">Follow the guided assembly process and enjoy the calm, hands-on making experience.</p>
+            </div>
+            <div class="step">
+              <div class="step-no">03</div>
+              <h3>Light It Up and Display</h3>
+              <p class="muted">Place it between your books and turn your shelf into a detail-rich conversation piece.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="banner-story">
+          <div class="content">
+            <span class="eyebrow" style="color:#f3ddad;">A Tiny Escape</span>
+            <h2>More Than a Craft Kit — A Little World You Can Keep</h2>
+            <p>Every book nook is part décor, part story, part creative ritual. Build it by hand, light it up, and let it bring a warm sense of wonder to your shelf.</p>
+            <div class="btns" style="margin-top: 22px;"><a class="btn secondary" style="border-color: rgba(255,248,239,.55); color:#fff8ef;" href="#about">Discover the Story</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+          <span class="eyebrow">Real Shelves, Real Builds</span>
+          <h2>Loved on Real Bookshelves</h2>
+          <p class="muted">See how customers style, build, and display their favorite book nook kits at home.</p>
+        </div>
+        <div class="ugc-grid">
+          <div class="ugc-shot" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="ugc-shot" style="background-image:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="ugc-shot" style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80');"></div>
+          <div class="ugc-shot" style="background-image:url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=900&q=80');"></div>
+        </div>
+        <div class="review-grid">
+          <div class="card review-card"><div class="stars">★★★★★</div><p>“It took me one cozy afternoon to build, and now it’s the most eye-catching thing on my shelf.”</p><strong>— Mia L.</strong></div>
+          <div class="card review-card"><div class="stars">★★★★★</div><p>“Bought one as a gift and immediately came back for another. The lighting details are so charming in person.”</p><strong>— Jason R.</strong></div>
+          <div class="card review-card"><div class="stars">★★★★★</div><p>“Way more beautiful than I expected. It feels like a tiny movie scene tucked between my books.”</p><strong>— Emily T.</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container soft-block">
+        <div class="gift-grid">
+          <div class="gift-media"></div>
+          <div>
+            <span class="eyebrow">Gift Ideas</span>
+            <h2>A Unique Gift for Book Lovers and Makers</h2>
+            <p>Looking for something more memorable than an ordinary gift? Our DIY book nook kits are thoughtful, display-worthy, and genuinely fun to build.</p>
+            <div class="chips">
+              <span class="chip">Book Lovers</span>
+              <span class="chip">DIY Fans</span>
+              <span class="chip">Holiday Gifts</span>
+              <span class="chip">Birthday Picks</span>
+            </div>
+            <a class="btn primary" href="#">Shop Gift Picks</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guides" class="section">
+      <div class="container">
+        <div class="section-head row">
+          <div>
+            <span class="eyebrow">Guides & Inspiration</span>
+            <h2>Tips, Tutorials & Gift Guides</h2>
+            <p class="muted">Content blocks that support both customer trust and SEO growth.</p>
+          </div>
+          <a class="link-arrow" href="#">Explore Guides →</a>
+        </div>
+        <div class="grid-3">
+          <article class="card blog-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><div class="eyebrow" style="margin-bottom:10px;">Tutorial</div><h3>How to Build a Book Nook Kit Step by Step</h3><p class="muted">A beginner-friendly guide to tools, timing, and assembly flow.</p></div>
+          </article>
+          <article class="card blog-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><div class="eyebrow" style="margin-bottom:10px;">Gift Guide</div><h3>Best Book Nook Kits for Beginners and Gift Shoppers</h3><p class="muted">A curated shortlist for first-time builders and special occasions.</p></div>
+          </article>
+          <article class="card blog-card">
+            <div class="media" style="background-image:url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="body"><div class="eyebrow" style="margin-bottom:10px;">Inspiration</div><h3>How to Style a Book Nook on Your Shelf at Home</h3><p class="muted">Use lighting, height, and surrounding décor to make the display stand out.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+          <span class="eyebrow">FAQs</span>
+          <h2>Everything Customers Usually Ask Before Ordering</h2>
+        </div>
+        <div class="faq-wrap">
+          <details open>
+            <summary>Are book nook kits beginner friendly?</summary>
+            <p class="muted">Yes. Many kits are suitable for beginners and come with guided assembly steps. You can also label products by difficulty to make selection easier.</p>
+          </details>
+          <details>
+            <summary>How long does assembly take?</summary>
+            <p class="muted">Most kits take several hours depending on complexity, pace, and experience level. Adding estimated build time on product cards can improve conversion.</p>
+          </details>
+          <details>
+            <summary>Do the kits include lights?</summary>
+            <p class="muted">Many book nook kits include LED lighting. Product cards and PDPs should clearly show whether lighting is included.</p>
+          </details>
+          <details>
+            <summary>Are batteries and glue included?</summary>
+            <p class="muted">That may vary by product and shipping rules. This should always be clarified in the product description and FAQ.</p>
+          </details>
+          <details>
+            <summary>What if a part is missing or damaged?</summary>
+            <p class="muted">Offer a clear replacement support policy. This is a major trust signal for DIY and miniature products.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-media"></div>
+          <div>
+            <span class="eyebrow">About BookNookWorld</span>
+            <h2>A Shelf Can Hold More Than Books — It Can Hold Imagination</h2>
+            <p>BookNookWorld is built for people who love stories, detail, and the quiet joy of making something beautiful by hand. Our kits are designed to feel warm, collectible, and worth displaying long after the build is done.</p>
+            <a class="btn secondary" href="#">Learn More About Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="email-box">
+          <span class="eyebrow">Stay in the Loop</span>
+          <h2>Get New Arrivals, Offers & Miniature Inspiration</h2>
+          <p class="muted">Join the list for exclusive deals, product drops, and ideas for your next tiny world.</p>
+          <form class="signup">
+            <input type="email" placeholder="Enter your email address" />
+            <button class="btn primary" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color:#fff8ef; margin-bottom: 12px;">BookNookWorld</div>
+          <p style="color: rgba(244,236,226,.78); max-width: 280px;">DIY book nook kits designed to bring warmth, story, and miniature wonder to your shelf.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <a href="#">Best Sellers</a>
+          <a href="#">New Arrivals</a>
+          <a href="#">Collections</a>
+          <a href="#">Gift Ideas</a>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <a href="#">FAQs</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">Replacement Parts</a>
+        </div>
+        <div>
+          <h4>About</h4>
+          <a href="#">Our Story</a>
+          <a href="#">Tutorials</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">Facebook</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 BookNookWorld. Homepage demo for preview and production planning.</span>
+        <span>Built as a warm DTC layout inspired by premium collectible brands.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
