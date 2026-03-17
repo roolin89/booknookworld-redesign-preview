@@ -10,20 +10,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --text-primary: #2F241E;
-      --text-secondary: #43352C;
-      --text-muted: #8E7E6F;
-      --bg-page: #FFFDF9;
-      --bg-soft: #F7F1E8;
+      --text-primary: #1F1F1F;
+      --text-secondary: #343434;
+      --text-muted: #6F6A63;
+      --bg-page: #FCFAF6;
+      --bg-soft: #F3EEE7;
       --bg-card: #FFFFFF;
-      --border: #EAE2D7;
-      --brand: #2F241E;
-      --brand-2: #6E4E37;
-      --green: #5E6B52;
-      --gold: #C8A96B;
-      --rose: #C89B93;
-      --shadow-s: 0 4px 12px rgba(47,36,30,0.06);
-      --shadow-m: 0 14px 32px rgba(47,36,30,0.08);
+      --border: #E5DED4;
+      --brand: #1F1F1F;
+      --brand-2: #6A503D;
+      --green: #4F5B46;
+      --gold: #B9965B;
+      --rose: #B89386;
+      --shadow-s: 0 4px 12px rgba(31,31,31,0.06);
+      --shadow-m: 0 14px 32px rgba(31,31,31,0.08);
       --radius-sm: 12px;
       --radius-md: 16px;
       --radius-lg: 22px;
@@ -37,7 +37,7 @@
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--text-secondary);
-      background: linear-gradient(180deg, #fffdf9 0%, #fbf7f1 100%);
+      background: linear-gradient(180deg, #fcfaf6 0%, #f6f0e8 100%);
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -89,7 +89,7 @@
     }
     .btn.primary {
       background: var(--brand);
-      color: #fffdf9;
+      color: #fcfaf6;
       box-shadow: var(--shadow-s);
     }
     .btn.primary:hover { background: #43352C; transform: translateY(-1px); }
@@ -143,7 +143,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(10px);
-      background: rgba(255,253,249,.88);
+      background: rgba(252,250,246,.92);
       border-bottom: 1px solid rgba(234,226,215,.8);
     }
     .nav {
@@ -178,7 +178,7 @@
       border-radius: 999px;
       display: grid;
       place-items: center;
-      background: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.88);
     }
 
     .hero {
@@ -204,7 +204,7 @@
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.92);
       font-size: 14px;
       color: var(--text-primary);
     }
@@ -231,7 +231,7 @@
     .hero-overlay {
       position: absolute;
       inset: auto 24px 24px 24px;
-      background: rgba(255, 248, 240, .88);
+      background: rgba(252, 248, 242, .92);
       border: 1px solid rgba(234,226,215,.9);
       border-radius: 22px;
       padding: 18px 20px;
@@ -239,7 +239,7 @@
     }
     .floating-card {
       position: absolute;
-      background: rgba(255,253,249,.96);
+      background: rgba(255,255,255,.96);
       padding: 16px 18px;
       max-width: 220px;
     }
@@ -318,9 +318,9 @@
       font-weight: 700;
       line-height: 1;
     }
-    .badge.gold { background: #f3ead9; color: #9a7940; }
-    .badge.green { background: #edf2ea; color: var(--green); }
-    .badge.rose { background: #f8ecea; color: #9b6d66; }
+    .badge.gold { background: #efe4cf; color: #8f7040; }
+    .badge.green { background: #e9efe5; color: var(--green); }
+    .badge.rose { background: #f3e6e2; color: #8f6a61; }
     .meta-row, .price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .stars { color: var(--gold); font-size: 14px; }
     .price { font-size: 18px; font-weight: 800; color: var(--text-primary); }
@@ -358,10 +358,11 @@
       padding: 36px;
     }
     .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .feature-card { background: rgba(255,255,255,.62); padding: 24px; border-radius: 20px; border: 1px solid rgba(234,226,215,.9); }
+    .feature-card { background: rgba(255,255,255,.72); padding: 24px; border-radius: 20px; border: 1px solid rgba(229,222,212,.95); }
     .feature-icon {
       width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
       background: #fff; color: var(--brand-2); font-weight: 800; margin-bottom: 14px;
+      border: 1px solid var(--border);
     }
     .feature-card h3 { font-family: 'Inter', sans-serif; font-size: 18px; }
 
