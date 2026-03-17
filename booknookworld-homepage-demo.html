@@ -222,6 +222,29 @@
     .floating-card small { display: block; color: var(--green); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
     .floating-card.one { top: 24px; left: -18px; }
     .floating-card.two { right: -14px; bottom: 82px; }
+    .hero-stats {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow-s);
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 24px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .stat-card span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
     .grid-6, .grid-4, .grid-3 {
       display: grid;
@@ -277,6 +300,32 @@
     .meta-row, .price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .stars { color: var(--gold); font-size: 14px; }
     .price { font-size: 18px; font-weight: 800; color: var(--text-primary); }
+    .product-meta-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 16px;
+    }
+    .mini-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn.small {
+      height: 44px;
+      padding: 0 16px;
+      font-size: 14px;
+      border-radius: 12px;
+    }
 
     .soft-block {
       background: var(--bg-soft);
@@ -349,6 +398,31 @@
     }
     .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .review-card { padding: 24px; }
+    .collection-highlight {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .collection-media {
+      min-height: 460px;
+      border-radius: 28px;
+      box-shadow: var(--shadow-m);
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(47,36,30,.1), rgba(47,36,30,.26)),
+        url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1400&q=80') center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+    .collection-overlay {
+      position: absolute;
+      inset: auto 24px 24px 24px;
+      background: rgba(255,253,249,.9);
+      border: 1px solid rgba(234,226,215,.95);
+      border-radius: 22px;
+      padding: 18px 20px;
+    }
 
     .gift-grid,
     .about-grid {
@@ -460,7 +534,8 @@
     @media (max-width: 1080px) {
       .grid-6 { grid-template-columns: repeat(3, 1fr); }
       .grid-4, .feature-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-grid, .how-grid, .gift-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero-grid, .how-grid, .gift-grid, .about-grid, .collection-highlight { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .review-grid { grid-template-columns: 1fr; }
       .ugc-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-visual { min-height: 540px; }
@@ -474,6 +549,7 @@
       .nav { height: auto; padding: 14px 0; flex-wrap: wrap; }
       .nav-links { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
       .grid-6, .grid-4, .grid-3, .feature-grid, .ugc-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
       .grid-3 { grid-template-columns: 1fr; }
       .theme-card .media, .product-card .media { aspect-ratio: 4/4.8; }
       .hero { padding-top: 34px; }
@@ -487,7 +563,8 @@
     }
 
     @media (max-width: 520px) {
-      .grid-6, .grid-4, .feature-grid, .ugc-grid { grid-template-columns: 1fr; }
+      .grid-6, .grid-4, .feature-grid, .ugc-grid, .hero-stats { grid-template-columns: 1fr; }
+      .product-actions { flex-direction: column; }
       .btns { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
     }
@@ -545,6 +622,12 @@
             <span class="trust-pill">LED Details</span>
             <span class="trust-pill">Gift-Worthy Design</span>
             <span class="trust-pill">Display-Ready Result</span>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-card"><strong>15k+</strong><span>happy builders & gift buyers</span></div>
+            <div class="stat-card"><strong>4.8/5</strong><span>average rating across featured kits</span></div>
+            <div class="stat-card"><strong>40+</strong><span>story-rich miniature scenes</span></div>
+            <div class="stat-card"><strong>Fast Help</strong><span>replacement parts support when needed</span></div>
           </div>
         </div>
 
@@ -620,7 +703,9 @@
               <div class="product-badges"><span class="badge gold">Best Seller</span><span class="badge green">With LED</span></div>
               <h3>Midnight Library Alley</h3>
               <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">128 reviews</span></div>
-              <div class="price-row" style="margin-top: 14px;"><span class="price">$69.00</span><a class="link-arrow" href="#">Shop →</a></div>
+              <div class="product-meta-list"><span class="mini-pill">5–7h build</span><span class="mini-pill">Warm light</span><span class="mini-pill">Display-ready</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$69.00</span><span class="muted">Free shipping $59+</span></div>
+              <div class="product-actions"><a class="btn primary small" href="#">Add to Cart</a><a class="btn secondary small" href="#">View Details</a></div>
             </div>
           </article>
           <article class="card product-card">
@@ -629,7 +714,9 @@
               <div class="product-badges"><span class="badge green">Beginner Friendly</span><span class="badge rose">Gift Pick</span></div>
               <h3>Moonlit Story Street</h3>
               <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">94 reviews</span></div>
-              <div class="price-row" style="margin-top: 14px;"><span class="price">$59.00</span><a class="link-arrow" href="#">Shop →</a></div>
+              <div class="product-meta-list"><span class="mini-pill">Beginner build</span><span class="mini-pill">Gift-ready</span><span class="mini-pill">Story scene</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$59.00</span><span class="muted">Popular starter kit</span></div>
+              <div class="product-actions"><a class="btn primary small" href="#">Add to Cart</a><a class="btn secondary small" href="#">View Details</a></div>
             </div>
           </article>
           <article class="card product-card">
@@ -638,7 +725,9 @@
               <div class="product-badges"><span class="badge gold">Collector Pick</span><span class="badge green">4–6 Hour Build</span></div>
               <h3>Lantern Walk Kyoto</h3>
               <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">86 reviews</span></div>
-              <div class="price-row" style="margin-top: 14px;"><span class="price">$72.00</span><a class="link-arrow" href="#">Shop →</a></div>
+              <div class="product-meta-list"><span class="mini-pill">Detailed build</span><span class="mini-pill">LED included</span><span class="mini-pill">Collector pick</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$72.00</span><span class="muted">For detail lovers</span></div>
+              <div class="product-actions"><a class="btn primary small" href="#">Add to Cart</a><a class="btn secondary small" href="#">View Details</a></div>
             </div>
           </article>
           <article class="card product-card">
@@ -647,9 +736,38 @@
               <div class="product-badges"><span class="badge rose">Gift Favorite</span><span class="badge green">Display Ready</span></div>
               <h3>Cozy Corner Bookshop</h3>
               <div class="meta-row"><span class="stars">★★★★★</span><span class="muted">143 reviews</span></div>
-              <div class="price-row" style="margin-top: 14px;"><span class="price">$65.00</span><a class="link-arrow" href="#">Shop →</a></div>
+              <div class="product-meta-list"><span class="mini-pill">Cozy décor</span><span class="mini-pill">Gift favorite</span><span class="mini-pill">Warm shelf glow</span></div>
+              <div class="price-row" style="margin-top: 14px;"><span class="price">$65.00</span><span class="muted">Top holiday pick</span></div>
+              <div class="product-actions"><a class="btn primary small" href="#">Add to Cart</a><a class="btn secondary small" href="#">View Details</a></div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container soft-block">
+        <div class="collection-highlight">
+          <div class="collection-media">
+            <div class="collection-overlay">
+              <strong style="display:block; color: var(--text-primary); margin-bottom: 8px;">Featured Collection</strong>
+              <span class="muted">A cinematic mix of warm light, layered details, and shelf-worthy scenes designed to feel premium at first glance.</span>
+            </div>
+          </div>
+          <div>
+            <span class="eyebrow">Featured Collection</span>
+            <h2>Library & Lantern Scenes That Feel Instantly Giftable</h2>
+            <p>Use this section like a real storefront highlight: one hero collection, a stronger merchandising angle, and a clear reason to browse deeper.</p>
+            <div class="chips">
+              <span class="chip">Best for gifting</span>
+              <span class="chip">Warm LED atmosphere</span>
+              <span class="chip">Collector-worthy detail</span>
+            </div>
+            <div class="btns">
+              <a class="btn primary" href="#">Shop This Collection</a>
+              <a class="btn secondary" href="#guides">See Styling Tips</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
