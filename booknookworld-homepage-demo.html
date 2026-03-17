@@ -108,6 +108,25 @@
       padding: 12px 0;
       overflow: hidden;
     }
+    .top-utility {
+      background: rgba(247,241,232,.92);
+      border-bottom: 1px solid rgba(234,226,215,.8);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .top-utility .inner {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .utility-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
     .announcement .track {
       display: flex;
       gap: 28px;
@@ -147,6 +166,11 @@
       font-size: 15px;
     }
     .nav-links a:hover { color: var(--brand-2); }
+    .mega-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
     .icon-pill {
       width: 40px;
       height: 40px;
@@ -482,6 +506,30 @@
     summary::-webkit-details-marker { display: none; }
     details p { margin-top: 12px; }
 
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .promo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow-s);
+    }
+    .promo-card strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .promo-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
     .email-box {
       background: var(--bg-soft);
       border: 1px solid var(--border);
@@ -533,7 +581,7 @@
 
     @media (max-width: 1080px) {
       .grid-6 { grid-template-columns: repeat(3, 1fr); }
-      .grid-4, .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-4, .feature-grid, .promo-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-grid, .how-grid, .gift-grid, .about-grid, .collection-highlight { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .review-grid { grid-template-columns: 1fr; }
@@ -548,7 +596,7 @@
       .section { padding: 64px 0; }
       .nav { height: auto; padding: 14px 0; flex-wrap: wrap; }
       .nav-links { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
-      .grid-6, .grid-4, .grid-3, .feature-grid, .ugc-grid { grid-template-columns: 1fr 1fr; }
+      .grid-6, .grid-4, .grid-3, .feature-grid, .ugc-grid, .promo-grid { grid-template-columns: 1fr 1fr; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
       .grid-3 { grid-template-columns: 1fr; }
       .theme-card .media, .product-card .media { aspect-ratio: 4/4.8; }
@@ -563,7 +611,7 @@
     }
 
     @media (max-width: 520px) {
-      .grid-6, .grid-4, .feature-grid, .ugc-grid, .hero-stats { grid-template-columns: 1fr; }
+      .grid-6, .grid-4, .feature-grid, .ugc-grid, .hero-stats, .promo-grid { grid-template-columns: 1fr; }
       .product-actions { flex-direction: column; }
       .btns { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
@@ -571,6 +619,17 @@
   </style>
 </head>
 <body>
+  <div class="top-utility">
+    <div class="container inner">
+      <div>USD $ · English · Ships worldwide</div>
+      <div class="utility-links">
+        <a href="#">Track Order</a>
+        <a href="#faq">Help Center</a>
+        <a href="#">Replacement Parts</a>
+      </div>
+    </div>
+  </div>
+
   <div class="announcement">
     <div class="container">
       <div class="track">
@@ -591,12 +650,12 @@
     <div class="container nav">
       <div class="logo">BookNookWorld</div>
       <nav class="nav-links">
-        <a href="#themes">Shop</a>
+        <a href="#themes">Shop All</a>
         <a href="#best-sellers">Best Sellers</a>
+        <a href="#featured-collection">Collections</a>
         <a href="#why-us">Why Us</a>
         <a href="#guides">Guides</a>
         <a href="#faq">FAQ</a>
-        <a href="#about">About</a>
       </nav>
       <div class="nav-icons">
         <div class="icon-pill">⌕</div>
@@ -623,6 +682,7 @@
             <span class="trust-pill">Gift-Worthy Design</span>
             <span class="trust-pill">Display-Ready Result</span>
           </div>
+          <div class="mega-note">Homepage v3 direction: closer to a Shopify-ready storefront with clearer merchandising, utility navigation, and conversion cues.</div>
           <div class="hero-stats">
             <div class="stat-card"><strong>15k+</strong><span>happy builders & gift buyers</span></div>
             <div class="stat-card"><strong>4.8/5</strong><span>average rating across featured kits</span></div>
@@ -746,6 +806,17 @@
     </section>
 
     <section class="section">
+      <div class="container">
+        <div class="promo-grid">
+          <div class="promo-card"><strong>Free Shipping</strong><p>Clear store-level incentive for AOV growth and lower friction.</p></div>
+          <div class="promo-card"><strong>Secure Checkout</strong><p>Highlight trusted payment flow and reduce hesitation before cart.</p></div>
+          <div class="promo-card"><strong>Replacement Support</strong><p>A strong trust signal for miniature kits and DIY assembly products.</p></div>
+          <div class="promo-card"><strong>Gift-Ready Picks</strong><p>Useful merchandising shortcut for shoppers buying by occasion.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-collection" class="section">
       <div class="container soft-block">
         <div class="collection-highlight">
           <div class="collection-media">
